@@ -11,27 +11,31 @@ typedef struct{
 int main(){
     int i;//i sebagai counter
     int jumlahMahasiswa;
+    char temp;  
     printf ("Masukan jumlah data mahasiswa: ");
     scanf ("%d", &jumlahMahasiswa);
     mahasiswa* ptr = (mahasiswa*) calloc (jumlahMahasiswa, sizeof(mahasiswa));
 
     for (i = 0; i < jumlahMahasiswa; i++) {
         printf ("Masukan nama: ");
-        scanf ("%s", &ptr[i].nama);
+        getchar();
+        gets(ptr[i].nama);
         printf ("Masukan NPM: ");
         scanf ("%s", &ptr[i].npm);
         printf ("Masukan Asal Sekolah: ");
-        scanf ("%s", &ptr[i].sma);
+        getchar();
+        gets(ptr[i].sma);
         printf ("Masukan nomor telepon: ");
         scanf ("%s", &ptr[i].telp);
         printf ("\n");
     }
 
-    printf ("%-12s %-12s %-12s %-12s \n", "Nama", "NPM", "SMA", "Telp");
+    printf ("%-26s %-16s %-16s %-16s \n", "Nama", "NPM", "SMA", "Telp");
 
     for (i = 0; i < jumlahMahasiswa; i++) {
-    printf ("%-12s %-12s %-12s %-12s \n", ptr[i].nama, ptr[i].npm, ptr[i].sma, ptr[i].telp);
+    printf ("%-26s %-16s %-16s %-16s \n", ptr[i].nama, ptr[i].npm, ptr[i].sma, ptr[i].telp);
     }
 
+    free(ptr);
     return 0;
 }
